@@ -1,0 +1,46 @@
+{
+    "General": {
+        "token":"bot-token-here",
+        "guildID": "guildid-here",
+        "webhooks": {
+            "webhookAuditUrl": "webhook-url-here",
+            "webhookErrorUrl": "webhook-url-here"
+        },
+        "defaultEphemeralError": true,
+        "dbURL": "mongodb-url-here",
+        "rcon": {
+            "host": "ip-here",
+            "port": 25565,
+            "password": "password-here"
+        },
+        "autoRestartWithCluster": true,
+        "maxReportCounts": 3
+    },
+
+    "Guild": {
+        "categories": {
+            "reportCategory": "id-here",
+            "applicationCategory": "id-here",
+            "guildCategory": "id-here",
+            "tempVoiceCategory": "id-here",
+            "prezidentCategory": "id-here",
+            "supportCategory": "id-here",
+            "buildCategory": "id-here",
+            "joinGuildCategory": "id-here"
+        },
+
+        "roles": {
+            "player": "id-here",
+            "support": "id-here",
+            "user": "id-here",
+            "prezident": "id-here"
+        },
+
+        "channels": {
+            "adminLogs": "id-here",
+            "applicationsLogs": "id-here",
+            "createTempVoice": "id-here",
+            "ticketLogs": "id-here"
+        }
+    }
+}

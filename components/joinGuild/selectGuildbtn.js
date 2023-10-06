@@ -1,0 +1,25 @@
+const Component = require('../../structure/component');
+const Discord = require('discord.js');
+const guilds = require('../../database/guilds.js');
+const config = require('../../jsons/config.json');
+
+module.exports = new Component({
+    componentID: "selectGuildbtn",
+    componentType: Discord.ComponentType.Button,
+    permission: "SendMessages",
+    acceptRoles: [],
+    async execute(client, interaction) {
+        const allGuilds = await guilds.find({});
+        if (allGuilds.length <= 25) {
+            await interaction.reply({
+                content: `Выбери одну из гильдий`, components: [new Discord.ActionRowBuilder().addComponents([new Discord.StringSelectMenuComponent({
+                        placeholder: "Выбрать можешь тут...",
+                        options: allGuilds.filter(filter => (filter.info.status ?? "Accepted") != "Сonsideration").map((guild) => {return {label: guild.info.name, value: `${guild._id}`, description: guild.info?.description?.slice(0,100) ?? "Описание отсутствует..."}}),
+                        type: Discord.ComponentType.StringSelect,
+                        custom_id: "selectGuildMenu"
+                })
+                ])]
+            })
+        }
+    }
+});
